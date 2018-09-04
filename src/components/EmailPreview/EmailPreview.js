@@ -1,9 +1,14 @@
 import React from 'react';
-import { FaUser } from 'react-icons/fa';
+import './EmailPreview.scss';
 
 const EmailPreview = () => {
 	return(
-		<h1><FaUser /> Email preview</h1>
+		<div className='container'>
+			<p>May 26</p>
+			<p><i className="far fa-user"></i> Amazon.com</p>
+			<p>Amazon SES Adress Verification Request</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adip...</p>
+		</div>
 	)
 }
 

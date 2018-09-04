@@ -10,7 +10,6 @@ class App extends Component {
 		        <SideNavigation />
 		        <EmailList />
 		        {/*
-					
 					<EmailDisplay />
 		        */}
 		    </div>

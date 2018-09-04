@@ -1,13 +1,12 @@
 import React from 'react';
-import { FaInbox, FaTrashAlt, FaMicrochip } from 'react-icons/fa';
 
 const SideNavigation = () => {
 	return(
 		<div>
-			<nav>
-			  <a href="#"><FaInbox /> Inbox</a>
-			  <a href="#"><FaTrashAlt /> Trash</a>
-			  <a href="#"><FaMicrochip /> Spam</a>
+			<nav className='navbar'>
+			  <a href="#"><i className="fas fa-inbox"></i> Inbox</a>
+			  <a href="#"><i className="far fa-trash-alt"></i> Trash</a>
+			  <a href="#"><i className="fas fa-microchip"></i> Spam</a>
 			</nav>
 		</div>
 	)
