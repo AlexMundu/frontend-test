@@ -7,6 +7,12 @@ const EmailList = () => {
 		<div>
 			<EmailPreview />
 			<EmailPreview />
+			<EmailPreview />
+			<EmailPreview />
+			<EmailPreview />
+			<EmailPreview />
+			<EmailPreview />
+			<EmailPreview />
 			
 		</div>
 	)
