@@ -1,0 +1,23 @@
+$BorderColor: #B5B5B5;
+$FontSize: 12px;
+$SelectedBarColor: #4990E2;
+
+.SideNav {
+	display: flex;
+	justify-content: flex-end;
+	width: inherit;
+	padding: 8px;
+	padding-right: 0;
+	border-bottom: 2px solid $BorderColor;
+	background: white;
+}
+
+.option {
+	padding-right: 15px;
+	cursor: pointer;
+	font-size: $FontSize;
+}
+
+.selected {
+	color: $SelectedBarColor;
+}

@@ -3,11 +3,14 @@ import './EmailPreview.scss';
 
 const EmailPreview = () => {
 	return(
-		<div className='container'>
-			<p>May 26</p>
-			<p><i className="far fa-user"></i> Amazon.com</p>
-			<p>Amazon SES Adress Verification Request</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adip...</p>
+		<div className='container '>
+			<div className='innerContainer'>
+				<div className='prevMessageTop'>
+					<p><i className="far fa-user"></i> Amazon.com</p><p>May26</p>
+				</div>
+				<p>Amazon SES Adress Verification Request</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adip...</p>
+			</div>
 		</div>
 	)
 }

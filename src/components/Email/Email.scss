@@ -1,0 +1,28 @@
+$BorderColor: #B5B5B5;
+$SenderFontSize: 16px;
+$BodyFontSize: 14px;
+$DateFontSize: 12px;
+$DateFontColor: #9B9B9B;
+
+.date {
+	font-size: $DateFontSize;
+	color: $DateFontColor;
+}
+
+#Email {
+	background: #FFF;
+	height: 450px;
+	width: inherit;
+	padding: 50px;
+	border: 1px solid $BorderColor;
+	border-radius: 10px;
+}
+
+#header {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#header > p:first-child {
+	margin-right: auto;
+}

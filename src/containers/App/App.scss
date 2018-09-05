@@ -1,5 +1,31 @@
-$MailBg: #F6F6F7;
+$EmailListWidth: 320px;
+$BorderColor: #B5B5B5;
+$FontFamily: Helvetica, sans-serif;
+$FontColor: #333333;
 
 body {
-	background: $MailBg;
+	background: #F6F6F7;
+	padding: 0;
+	margin-top: 0;
+	margin: 0;
+	font-family: $FontFamily;
+	color: $FontColor;
+}
+
+a {
+	text-decoration: none;
+}
+
+#Appcontainer {
+	display: flex;
+}
+
+#EmailListContainer {
+	width: $EmailListWidth;
+	border-right: 1px solid $BorderColor;
+}
+
+#EmailDisplay {
+	height: 500px;
+	padding: 0 40px;
 }

@@ -1,40 +1,58 @@
 $Width: 320px;
 $Height: 80px;
-$FontFamily: Helvetica, sans-serif;
 $TextColor: #333333;
 $ShortDescColor: #9B9B9B;
-$BorderColor: #B5B5B5;
 $SelectedBg: #F9F9F9;
-$Padding: 15px;
+$PaddingTop: 15px;
+$MailBg: #F6F6F7;
+$BorderColor: #B5B5B5;
 
-p {
-	font-size: 12px;
-	margin: 0 0 9px 0;
-}
+
 
 .container {
-	padding: $Padding;
 	color: $TextColor;
 	width: $Width;
 	height: $Height;
-	font-family: $FontFamily;
-	border: 1px solid $BorderColor;
-	background: $SelectedBg;
+	border-bottom: 1px solid $BorderColor;
+	border-top: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	background: white;
 }
 
-p:first-child {
-	color: $ShortDescColor;
-	font-size: 10px;
-	text-align: right;
-	margin: 0 0;
+.innerContainer {
+	padding: 15px;
 }
 
-p:nth-child(2) {
+.prevMessageTop {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 0;
+}
+
+.innerContainer p {
+	font-size: 12px;
+	margin: 0;
+	margin-bottom: 4px;
+}
+
+
+.innerContainer > .prevMessageTop > p:nth-child(1) {
 	font-weight: bold;
+	margin-right:auto;
 }
 
-
-p:nth-child(4) {
+.innerContainer > .prevMessageTop > p:nth-child(2) {
+	font-size: 10px;
 	color: $ShortDescColor;
 }
+
+
+.innerContainer > p:nth-child(3) {
+	color: $ShortDescColor;
+}
+
+
 
