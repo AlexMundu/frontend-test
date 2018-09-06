@@ -1,6 +1,7 @@
 $SubjectFontSize: 16px;
 $ActionsFontSize: 19px;
 $ActionsColor: #8B8B8B;
+$ActionsColorHover: #ADADAD;
 $Padding: 20px;
 
 #EmailNav {
@@ -16,6 +17,10 @@ $Padding: 20px;
 	color: $ActionsColor;
 	cursor: pointer;
 	margin: 0;
+}
+
+.action:hover {
+	color: $ActionsColorHover;
 }
 
 #EmailNav > p:first-child {

@@ -1,10 +1,11 @@
 import React from 'react';
 import EmailPreview from '../EmailPreview/EmailPreview';
+import './EmailList.scss';
 
 const EmailList = () => {
 	
 	return(
-		<div>
+		<div className='scrollableList'>
 			<EmailPreview />
 			<EmailPreview />
 			<EmailPreview />
@@ -13,7 +14,8 @@ const EmailList = () => {
 			<EmailPreview />
 			<EmailPreview />
 			<EmailPreview />
-			
+			<EmailPreview />
+			<EmailPreview />
 		</div>
 	)
 }

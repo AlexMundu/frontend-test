@@ -5,7 +5,6 @@ $SelectedBarColor: #4990E2;
 .SideNav {
 	display: flex;
 	justify-content: flex-end;
-	width: inherit;
 	padding: 8px;
 	padding-right: 0;
 	border-bottom: 2px solid $BorderColor;
@@ -16,6 +15,10 @@ $SelectedBarColor: #4990E2;
 	padding-right: 15px;
 	cursor: pointer;
 	font-size: $FontSize;
+}
+
+.option:hover {
+	color: $SelectedBarColor
 }
 
 .selected {

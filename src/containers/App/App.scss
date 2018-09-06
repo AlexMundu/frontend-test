@@ -16,17 +16,26 @@ a {
 	text-decoration: none;
 }
 
+pre {
+	font-family: $FontFamily;
+	color: $FontColor;
+}
+
 #Appcontainer {
-	height: 100%;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
 	display: flex;
+	justify-content: flex-end;
+	align-content: center;
 }
 
 #EmailListContainer {
+	height: 100vh;
 	width: $EmailListWidth;
 	border-right: 1px solid $BorderColor;
 }
 
 #EmailDisplay {
-	height: 630px;
 	padding: 0 40px;
 }

@@ -11,11 +11,11 @@ $DateFontColor: #9B9B9B;
 
 #Email {
 	background: #FFF;
-	height: 90%;
-	width: inherit;
+	height: calc(80vh - 62px);
 	padding: 40px 50px;
 	border: 1px solid $BorderColor;
 	border-radius: 10px;
+	overflow-y: scroll;
 }
 
 #header {
