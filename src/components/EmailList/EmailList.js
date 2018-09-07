@@ -2,7 +2,7 @@ import React from 'react';
 import EmailPreview from '../EmailPreview/EmailPreview';
 import './EmailList.scss';
 
-const EmailList = ({ emails, onClick }) => {
+const EmailList = ({ emails, onClick, openEmail }) => {
 	
 	return(
 		<div className='scrollableList'>
@@ -15,7 +15,8 @@ const EmailList = ({ emails, onClick }) => {
 						body={ emails[i].body } 
 						onClick={ onClick }
 						isReaded= { emails[i].isReaded }
-						index= {i} />)
+						index= {i}
+						openEmail={openEmail} />)
 				})
 			}
 		</div>

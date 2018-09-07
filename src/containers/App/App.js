@@ -12,8 +12,8 @@ import initialEmails from './mail-data.json';
 
 const mapStateToProps = (state) => {
 	return {
-		emails: state.addEmailToList.emails,
-		openEmail: state.click.openEmail
+		emails: state.emails,
+		openEmail: state.openEmail
 	}
 }
 
@@ -31,17 +31,19 @@ class App extends Component {
 	componentDidMount() {
 		//Add new emails to the email list
 
-		setInterval(()=> {
-			initialEmails.forEach( email => {
-			email.folder = 'inbox';
-			this.props.addEmailToInbox(email);
-		})
-		}, 3000);
-
-		// initialEmails.forEach( email => {
+		// setInterval(()=> {
+		// 	initialEmails.forEach( email => {
 		// 	email.folder = 'inbox';
 		// 	this.props.addEmailToInbox(email);
 		// })
+		// }, 3000);
+
+		for(let i = 0; i < initialEmails.length; i++){
+			initialEmails.forEach( email => {
+				email.folder = 'inbox';
+				this.props.addEmailToInbox(email);
+			})
+		}
 	}
 
     render () {
@@ -50,7 +52,7 @@ class App extends Component {
     		<div id='Appcontainer'>
     			<div id='EmailListContainer'>
 		        	<SideNavigation />
-		        	<EmailList emails={ emails } onClick={onClick}/>
+		        	<EmailList emails={ emails } onClick={onClick} openEmail={openEmail}/>
 		        </div>
 				<div id='EmailDisplay'>
 

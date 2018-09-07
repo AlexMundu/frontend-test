@@ -6,6 +6,7 @@ $SelectedBg: #F9F9F9;
 $PaddingTop: 15px;
 $MailBg: #F6F6F7;
 $BorderColor: #B5B5B5;
+$SelectedBarColor: #4990E2;
 
 
 
@@ -19,10 +20,11 @@ $BorderColor: #B5B5B5;
 	padding: 0;
 	cursor: pointer;
 	background: white;
+	position: relative;
 }
 
 .innerContainer {
-	padding: 15px;
+	padding: 15px 20px;
 }
 
 .prevMessageTop {
@@ -35,7 +37,7 @@ $BorderColor: #B5B5B5;
 .innerContainer p {
 	font-size: 12px;
 	margin: 0;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 
 
@@ -55,6 +57,15 @@ $BorderColor: #B5B5B5;
 }
 
 
-.readed {
-	background: black;
+.unreaded-circle {
+	position: absolute;
+	top: 45%;
+	left: 3px;
+	font-size: 10px;
+	color: $SelectedBarColor;
+}
+
+.selected-message {
+	background: $SelectedBg;
+	border-left: 3px solid $SelectedBarColor;
 }
