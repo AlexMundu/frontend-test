@@ -50,7 +50,7 @@ class App extends Component {
 			email.folder = 'inbox';
 			this.props.addEmailToInbox(email);
 		})
-		}, 3000);
+		}, 90000);
 
 		//Placeholder emails
 		// for(let i = 0; i < initialEmails.length; i++){
@@ -81,6 +81,7 @@ class App extends Component {
 		        		onChangeToTrash={onChangeToTrash}
 		        		onChangeToInbox={onChangeToInbox}
 		        		onChangeToSpam={onChangeToSpam}
+		        		openTab={openTab}
 		        	/>
 		        	<EmailList 
 		        		emails={ emails } 
