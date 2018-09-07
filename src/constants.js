@@ -1,0 +1,5 @@
+export const DISPLAY_EMAIL = 'DISPLAY_EMAIL';
+
+export const ADD_EMAIL_TO_INBOX = 'ADD_EMAIL_TO_INBOX';
+
+export const DELETE_EMAIL = 'DELETE_EMAIL';

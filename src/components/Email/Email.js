@@ -1,19 +1,19 @@
 import React from 'react';
 import './Email.scss';
 
-const EmailNavigation = () => {
+const Email = ({ email }) => {
 	
 	return(
 		<div id='Email'>
 			<div id='header'>
-				<p>Amazon.com <a href="#" className='selected'>&lt;noreply@amazon.com&gt;</a></p>
-				<p className='date'>Thursday, May 26, 11:09 AM</p>
+				<p>{ email.from.substring(0, email.from.indexOf('@')) } <a href="#" className='selected'>&lt;{ email.from }&gt;</a></p>
+				<p className='date'>{ email.date }</p>
 			</div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae viverra tellus. Aenean consequat lacinia
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae viverra tellus. Aenean consequat lacinia
+			<p>
+				{ email.body }
 			</p>
 		</div>
 	)
 }
 
-export default EmailNavigation;
+export default Email;
