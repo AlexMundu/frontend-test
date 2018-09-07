@@ -4,7 +4,7 @@ import EmailList from '../../components/EmailList/EmailList';
 import EmailNavigation from '../../components/EmailNavigation/EmailNavigation';
 import Email from '../../components/Email/Email';
 import './App.scss';
-import { click, addEmailToInbox, deleteEmail } from '../../actions';
+import { click, addEmailToInbox, deleteEmail, markAsUnread } from '../../actions';
 import { connect } from 'react-redux';
 import initialEmails from './mail-data.json';
 
@@ -22,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
 		//
 		onClick: (index) => dispatch(click(index)),
 		addEmailToInbox: (email) => dispatch(addEmailToInbox(email)),
-		onDeleteClick: () => dispatch(deleteEmail())
+		onDeleteClick: () => dispatch(deleteEmail()),
+		onmarkAsUnread: () => dispatch(markAsUnread())
 	}
 }
 
@@ -47,7 +48,7 @@ class App extends Component {
 	}
 
     render () {
-    	const { onClick, emails, openEmail, onDeleteClick } = this.props; 
+    	const { onClick, emails, openEmail, onDeleteClick, onmarkAsUnread } = this.props; 
     	return (
     		<div id='Appcontainer'>
     			<div id='EmailListContainer'>
@@ -60,7 +61,8 @@ class App extends Component {
 							<div>
 								<EmailNavigation 
 									subject={ emails[openEmail].subject } 
-									onDeleteClick={ onDeleteClick }/>
+									onDeleteClick={ onDeleteClick }
+									onmarkAsUnread={ onmarkAsUnread }/>
 								<Email email={ emails[openEmail] }/>
 							</div>
 						: 

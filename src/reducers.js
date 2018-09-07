@@ -1,7 +1,9 @@
 import { 
 	DISPLAY_EMAIL, 
 	ADD_EMAIL_TO_INBOX,
-	DELETE_EMAIL
+	DELETE_EMAIL,
+	MARK_AS_UNREAD,
+	MARK_AS_SPAM
 } from './constants';
 
 //When user clikc on email it has to mark as read
@@ -42,17 +44,31 @@ export const click = (state=initialState, action={}) => {
 				    }),
 				    openEmail: null
 				  });
-		default:
-			return state;
-	}
-}
-
-
-
-export const addEmailToList = (state=initialState, action={}) => {
-	switch(action.type) {
-
-		default:
-			return state;
+			case MARK_AS_SPAM:
+				return Object.assign({}, state, {
+				    emails: state.emails.map((email, index) => {
+				      if (index === state.openEmail) {
+				      	console.log(find);
+				        return Object.assign({}, email, {
+				          	folder: 'trash'
+				        })
+				      }
+				      return email
+				    }),
+				    openEmail: null
+				  });
+			case MARK_AS_UNREAD:
+				return Object.assign({}, state, {
+				    emails: state.emails.map((email, index) => {
+				      if (index === state.openEmail) {
+				        return Object.assign({}, email, {
+				          	isReaded: false
+				        })
+				      }
+				      return email
+				    })
+				  });
+			default:
+				return state;
 	}
 }
