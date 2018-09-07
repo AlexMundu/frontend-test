@@ -4,7 +4,7 @@ import EmailList from '../../components/EmailList/EmailList';
 import EmailNavigation from '../../components/EmailNavigation/EmailNavigation';
 import Email from '../../components/Email/Email';
 import './App.scss';
-import { click, addEmailToInbox, deleteEmail, markAsUnread } from '../../actions';
+import { click, addEmailToInbox, deleteEmail, markAsUnread, markAsSpam } from '../../actions';
 import { connect } from 'react-redux';
 import initialEmails from './mail-data.json';
 
@@ -13,17 +13,18 @@ import initialEmails from './mail-data.json';
 const mapStateToProps = (state) => {
 	return {
 		emails: state.emails,
-		openEmail: state.openEmail
+		openEmail: state.openEmail,
+		openFolder: state.openFolder
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		//
 		onClick: (index) => dispatch(click(index)),
 		addEmailToInbox: (email) => dispatch(addEmailToInbox(email)),
 		onDeleteClick: () => dispatch(deleteEmail()),
-		onmarkAsUnread: () => dispatch(markAsUnread())
+		onMarkAsUnread: () => dispatch(markAsUnread()),
+		onMarkAsSpam: () => dispatch(markAsSpam())
 	}
 }
 
@@ -48,7 +49,7 @@ class App extends Component {
 	}
 
     render () {
-    	const { onClick, emails, openEmail, onDeleteClick, onmarkAsUnread } = this.props; 
+    	const { onClick, emails, openEmail, onDeleteClick, onMarkAsUnread, onMarkAsSpam } = this.props; 
     	return (
     		<div id='Appcontainer'>
     			<div id='EmailListContainer'>
@@ -62,7 +63,8 @@ class App extends Component {
 								<EmailNavigation 
 									subject={ emails[openEmail].subject } 
 									onDeleteClick={ onDeleteClick }
-									onmarkAsUnread={ onmarkAsUnread }/>
+									onMarkAsUnread={ onMarkAsUnread }
+									onMarkAsSpam = { onMarkAsSpam }/>
 								<Email email={ emails[openEmail] }/>
 							</div>
 						: 
