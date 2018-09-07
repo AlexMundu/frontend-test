@@ -31,10 +31,17 @@ class App extends Component {
 	componentDidMount() {
 		//Add new emails to the email list
 
-		initialEmails.forEach( email => {
+		setInterval(()=> {
+			initialEmails.forEach( email => {
 			email.folder = 'inbox';
 			this.props.addEmailToInbox(email);
 		})
+		}, 3000);
+
+		// initialEmails.forEach( email => {
+		// 	email.folder = 'inbox';
+		// 	this.props.addEmailToInbox(email);
+		// })
 	}
 
     render () {

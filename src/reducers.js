@@ -9,13 +9,19 @@ const initialState = {
 export const click = (state=initialState, action={}) => {
 	switch(action.type) {
 		case DISPLAY_EMAIL:
-			const copyEmails = state.emails.splice();
-			copyEmails[state.openEmail].folder = 'trash';
-			return Object.assign({}, state, { openEmail:action.payload });
+			return Object.assign({}, state, {
+			    emails: state.emails.map((email, index) => {
+			      if (index === action.payload) {
+			        return Object.assign({}, email, {
+			          	isReaded: true
+			        })
+			      }
+			      return email
+			    }),
+			    openEmail: action.payload
+			  });
 		case DELETE_EMAIL:
-			const copyEmails = state.emails.splice();
-			copyEmails[state.openEmail].folder = 'trash';
-			return Object.assign({}, state, { openEmail: null, emails: copyEmails });
+			
 		default:
 			return state;
 	}
@@ -26,7 +32,7 @@ export const click = (state=initialState, action={}) => {
 export const addEmailToList = (state=initialState, action={}) => {
 	switch(action.type) {
 		case ADD_EMAIL_TO_INBOX:
-			return Object.assign({}, state, { emails: [action.payload, ... state.emails] });
+			return Object.assign({}, state, { emails: [action.payload].concat(state.emails) });
 		default:
 			return state;
 	}

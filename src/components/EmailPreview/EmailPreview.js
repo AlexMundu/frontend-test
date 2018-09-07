@@ -2,8 +2,9 @@ import React from 'react';
 import './EmailPreview.scss';
 
 const EmailPreview = ({index, from, date, subject, body, onClick, isReaded }) => {
+	const isReadedStyle = isReaded ? 'readed container' : 'container';
 	return(
-		<div className='container ' onClick={() => onClick(index) }>
+		<div className={ isReadedStyle } onClick={() => onClick(index) }>
 			<div className='innerContainer'>
 				<div className='prevMessageTop'>
 					<p><i className="far fa-user"></i> { from }</p><p>{ date }</p>
