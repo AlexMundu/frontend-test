@@ -4,7 +4,16 @@ import EmailList from '../../components/EmailList/EmailList';
 import EmailNavigation from '../../components/EmailNavigation/EmailNavigation';
 import Email from '../../components/Email/Email';
 import './App.scss';
-import { click, addEmailToInbox, deleteEmail, markAsUnread, markAsSpam } from '../../actions';
+import { 
+	click, 
+	addEmailToInbox, 
+	deleteEmail, 
+	markAsUnread, 
+	markAsSpam,
+	openInboxTab,
+	openTrashTab,
+	openSpamTab
+} from '../../actions';
 import { connect } from 'react-redux';
 import initialEmails from './mail-data.json';
 
@@ -14,7 +23,7 @@ const mapStateToProps = (state) => {
 	return {
 		emails: state.emails,
 		openEmail: state.openEmail,
-		openFolder: state.openFolder
+		openTab: state.openTab
 	}
 }
 
@@ -24,7 +33,10 @@ const mapDispatchToProps = (dispatch) => {
 		addEmailToInbox: (email) => dispatch(addEmailToInbox(email)),
 		onDeleteClick: () => dispatch(deleteEmail()),
 		onMarkAsUnread: () => dispatch(markAsUnread()),
-		onMarkAsSpam: () => dispatch(markAsSpam())
+		onMarkAsSpam: () => dispatch(markAsSpam()),
+		onChangeToInbox: (tabName) => dispatch(openInboxTab(tabName)),
+		onChangeToTrash: (tabName) => dispatch(openTrashTab(tabName)),
+		onChangeToSpam: (tabName) => dispatch(openSpamTab(tabName)),
 	}
 }
 
@@ -33,28 +45,49 @@ class App extends Component {
 	componentDidMount() {
 		//Add new emails to the email list
 
-		// setInterval(()=> {
-		// 	initialEmails.forEach( email => {
-		// 	email.folder = 'inbox';
-		// 	this.props.addEmailToInbox(email);
-		// })
-		// }, 3000);
-
-		for(let i = 0; i < initialEmails.length; i++){
+		setInterval(()=> {
 			initialEmails.forEach( email => {
-				email.folder = 'inbox';
-				this.props.addEmailToInbox(email);
-			})
-		}
+			email.folder = 'inbox';
+			this.props.addEmailToInbox(email);
+		})
+		}, 3000);
+
+		//Placeholder emails
+		// for(let i = 0; i < initialEmails.length; i++){
+		// 	initialEmails.forEach( email => {
+		// 		email.folder = 'inbox';
+		// 		this.props.addEmailToInbox(email);
+		// 	})
+		// }
 	}
 
     render () {
-    	const { onClick, emails, openEmail, onDeleteClick, onMarkAsUnread, onMarkAsSpam } = this.props; 
+    	const { 
+    		onClick, 
+    		emails, 
+    		openEmail, 
+    		onDeleteClick, 
+    		onMarkAsUnread, 
+    		onMarkAsSpam,
+    		onChangeToInbox,
+    		onChangeToTrash,
+    		onChangeToSpam,
+    		openTab
+    	} = this.props; 
     	return (
     		<div id='Appcontainer'>
     			<div id='EmailListContainer'>
-		        	<SideNavigation />
-		        	<EmailList emails={ emails } onClick={onClick} openEmail={openEmail}/>
+		        	<SideNavigation 
+		        		onChangeToTrash={onChangeToTrash}
+		        		onChangeToInbox={onChangeToInbox}
+		        		onChangeToSpam={onChangeToSpam}
+		        	/>
+		        	<EmailList 
+		        		emails={ emails } 
+		        		onClick={ onClick } 
+		        		openEmail={ openEmail }
+		        		openTab={ openTab }
+		        	/>
 		        </div>
 				<div id='EmailDisplay'>
 

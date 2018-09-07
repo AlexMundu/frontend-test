@@ -3,7 +3,10 @@ import {
 	ADD_EMAIL_TO_INBOX,
 	DELETE_EMAIL,
 	MARK_AS_UNREAD,
-	MARK_AS_SPAM
+	MARK_AS_SPAM,
+	OPEN_INBOX_TAB,
+	OPEN_TRASH_TAB,
+	OPEN_SPAM_TAB
 } from './constants';
 
 export const click = (index) => ({
@@ -26,4 +29,19 @@ export const markAsUnread = () => ({
 
 export const markAsSpam = () => ({
 	type: MARK_AS_SPAM
+})
+
+export const openInboxTab = (tabName) => ({
+	type: OPEN_INBOX_TAB,
+	payload: tabName
+})
+
+export const openTrashTab = (tabName) => ({
+	type: OPEN_TRASH_TAB,
+	payload: tabName
+})
+
+export const openSpamTab = (tabName) => ({
+	type: OPEN_SPAM_TAB,
+	payload: tabName
 })

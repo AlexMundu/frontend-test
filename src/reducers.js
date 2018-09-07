@@ -3,14 +3,16 @@ import {
 	ADD_EMAIL_TO_INBOX,
 	DELETE_EMAIL,
 	MARK_AS_UNREAD,
-	MARK_AS_SPAM
+	MARK_AS_SPAM,
+	OPEN_INBOX_TAB,
+	OPEN_TRASH_TAB,
+	OPEN_SPAM_TAB
 } from './constants';
-
 //When user clikc on email it has to mark as read
 const initialState = {
 	openEmail: null,
 	emails: [],
-	openFolder: 'inbox'
+	openTab: 'inbox'
 }
 
 export const click = (state=initialState, action={}) => {
@@ -73,6 +75,16 @@ export const click = (state=initialState, action={}) => {
 				      return email
 				    })
 				  });
+
+			case OPEN_INBOX_TAB:
+				return Object.assign({}, state, {openTab: action.payload});
+
+			case OPEN_TRASH_TAB:
+				return Object.assign({}, state, {openTab: action.payload});
+
+			case OPEN_SPAM_TAB:
+				return Object.assign({}, state, {openTab: action.payload});
+
 			default:
 				return state;
 	}
